@@ -69,8 +69,8 @@ Base de Datos Oracle (Tablas, Vistas, Vistas Materializadas)
 
 1. **Clonar el repositorio**
 ```bash
-git clone https://github.com/fvaleradeveloper/fuerza-de-venta.git
-cd fuerza-de-venta
+git clone https://github.com/fvaleradeveloper/fuerza-de-venta-demo.git
+cd fuerza-de-venta-demo
 ```
 
 2. **Instalar dependencias**
@@ -380,7 +380,7 @@ Todas las APIs deben exponerse vía **Oracle REST Data Services (ORDS)** con **P
 [ ] Inactivación lógica (ACTIVO='N') en maestros
 [ ] Pruebas SQL + Postman OK
 ```
-https://fv-demo.vercel.app/
+https://fuerza-de-venta-demo.vercel.app/
 ### Requerimientos Técnicos
 
 | Requerimiento | Justificación |
@@ -419,5 +419,5 @@ npm run build  # Genera dist/
 ---
 
 **Última actualización**: Octubre 2026  
-**Repositorio**: [https://github.com/fvaleradeveloper/fuerza-de-venta](https://github.com/fvaleradeveloper/fuerza-de-venta)  
+**Repositorio**: [https://github.com/fvaleradeveloper/fuerza-de-venta-demo](https://github.com/fvaleradeveloper/fuerza-de-venta-demo)  
 **Deploy**: Vercel (auto-deploy desde `main`)
