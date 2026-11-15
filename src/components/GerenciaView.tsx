@@ -27,7 +27,7 @@ export const GerenciaView: React.FC<GerenciaViewProps> = ({ withIGV }) => {
   const zonesData = [
     {
       zone: 'Lima Norte',
-      supervisor: 'Carlos Mendoza (Líder Alfa)',
+      supervisor: 'Laura Vega (Líder Alfa)',
       reps: 12,
       sales: 1480200,
       quota: 1550000,
@@ -37,7 +37,7 @@ export const GerenciaView: React.FC<GerenciaViewProps> = ({ withIGV }) => {
     },
     {
       zone: 'Lima Centro',
-      supervisor: 'Jorge Ramirez',
+      supervisor: 'Ricardo Silva',
       reps: 10,
       sales: 1120400,
       quota: 1200000,
@@ -47,7 +47,7 @@ export const GerenciaView: React.FC<GerenciaViewProps> = ({ withIGV }) => {
     },
     {
       zone: 'Lima Sur',
-      supervisor: 'Ana Lucía Torres',
+      supervisor: 'Elena Torres',
       reps: 9,
       sales: 890300,
       quota: 920000,
@@ -331,7 +331,7 @@ export const GerenciaView: React.FC<GerenciaViewProps> = ({ withIGV }) => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="p-5 bg-white dark:bg-[#1e293b] border border-[#e0e3e5] dark:border-[#334155] rounded-xl shadow-xs">
           <div className="flex items-center justify-between mb-2">
-            <h4 className="font-bold text-xs text-[#191c1e] dark:text-[#f1f5f9]">Rebate Anual Nestlé</h4>
+            <h4 className="font-bold text-xs text-[#191c1e] dark:text-[#f1f5f9]">Rebate Anual Sol Andina</h4>
             <span className="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded">
               Alcanzado
             </span>
@@ -344,20 +344,20 @@ export const GerenciaView: React.FC<GerenciaViewProps> = ({ withIGV }) => {
 
         <div className="p-5 bg-white dark:bg-[#1e293b] border border-[#e0e3e5] dark:border-[#334155] rounded-xl shadow-xs">
           <div className="flex items-center justify-between mb-2">
-            <h4 className="font-bold text-xs text-[#191c1e] dark:text-[#f1f5f9]">Rebate Anual Alicorp</h4>
+            <h4 className="font-bold text-xs text-[#191c1e] dark:text-[#f1f5f9]">Rebate Anual Linea Mar</h4>
             <span className="px-2 py-0.5 bg-blue-100 text-blue-800 text-[10px] font-bold rounded">
               En Camino (96%)
             </span>
           </div>
           <p className="text-2xl font-mono font-extrabold text-[#191c1e] dark:text-[#f1f5f9]">2.8%</p>
           <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-1">
-            Foco en aceites Primor y fideos Don Vittorio en Lima Norte.
+            Foco en aceites Primor y fideos Pasta Dorada en Lima Norte.
           </p>
         </div>
 
         <div className="p-5 bg-white dark:bg-[#1e293b] border border-[#e0e3e5] dark:border-[#334155] rounded-xl shadow-xs">
           <div className="flex items-center justify-between mb-2">
-            <h4 className="font-bold text-xs text-[#191c1e] dark:text-[#f1f5f9]">Rebate Leche Gloria</h4>
+            <h4 className="font-bold text-xs text-[#191c1e] dark:text-[#f1f5f9]">Rebate Leche Linea Valle</h4>
             <span className="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded">
               Alcanzado
             </span>

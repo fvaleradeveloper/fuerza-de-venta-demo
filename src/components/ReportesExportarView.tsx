@@ -64,7 +64,7 @@ export const ReportesExportarView: React.FC<ReportesExportarViewProps> = ({
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement('a');
     link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `total_calidad_reporte_${withIGV ? 'con_igv' : 'sin_igv'}_${new Date().toISOString().slice(0, 10)}.csv`);
+    link.setAttribute('download', `fuerza_de_venta_reporte_${withIGV ? 'con_igv' : 'sin_igv'}_${new Date().toISOString().slice(0, 10)}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -169,9 +169,9 @@ export const ReportesExportarView: React.FC<ReportesExportarViewProps> = ({
               className="w-full bg-white dark:bg-[#1e293b] border border-[#c6c6cd] dark:border-[#475569] rounded-lg px-3 py-2 text-xs font-semibold text-[#191c1e] dark:text-[#f1f5f9] outline-none shadow-2xs"
             >
               <option value="Todas">Todas las Líneas</option>
-              <option value="Nestle">Nestlé Perú</option>
-              <option value="Alicorp">Alicorp Consumo</option>
-              <option value="Gloria">Leche Gloria</option>
+              <option value="Linea Sol">Sol Andina Peru</option>
+              <option value="Linea Mar">Linea Mar Consumo</option>
+              <option value="Linea Valle">Leche Linea Valle</option>
             </select>
           </div>
 

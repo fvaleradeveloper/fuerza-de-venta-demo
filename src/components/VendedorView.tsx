@@ -94,10 +94,10 @@ export const VendedorView: React.FC<VendedorViewProps> = ({
   const handleRegisterOrder = (e: React.FormEvent) => {
     e.preventDefault();
     const skuPrices: Record<string, number> = {
-      'Gloria Azul 400g': 4.2,
-      'Primor Clásico 900ml': 8.5,
+      'Linea Valle Azul 400g': 4.2,
+      'Mar Pacifico Aceite 900ml': 8.5,
       'Nescafé Tradición 50g': 7.9,
-      'Fideos Don Vittorio 450g': 3.1,
+      'Fideos Pasta Dorada 450g': 3.1,
     };
 
     const addedAmount = (skuPrices[newOrderSKU] || 5) * newOrderQty * 24;

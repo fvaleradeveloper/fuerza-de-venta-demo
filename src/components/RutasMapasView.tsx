@@ -254,7 +254,7 @@ export const RutasMapasView: React.FC<RutasMapasViewProps> = ({
       }
     });
 
-    // 2. Plot Sales Representative Live Position (Carlos Gomez in Av. Antúnez de Mayolo)
+    // 2. Plot Sales Representative Live Position (Andres Lopez in Av. Antúnez de Mayolo)
     const repPos: [number, number] = [-11.9860, -77.0690];
     const repIconHtml = `
       <div style="position: relative; display: flex; flex-direction: column; align-items: center;">
@@ -263,7 +263,7 @@ export const RutasMapasView: React.FC<RutasMapasViewProps> = ({
           CG
         </div>
         <div style="background: #0f172a; color: #10b981; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 9999px; margin-top: 3px; box-shadow: 0 2px 6px rgba(0,0,0,0.3); border: 1px solid #10b981; white-space: nowrap; z-index: 10;">
-          Carlos Gomez (24 km/h)
+          Andres Lopez (24 km/h)
         </div>
       </div>
     `;
@@ -280,7 +280,7 @@ export const RutasMapasView: React.FC<RutasMapasViewProps> = ({
 
     repMarker.bindPopup(`
       <div style="font-family: sans-serif; padding: 4px;">
-        <div style="font-weight: 800; font-size: 13px; color: #0f172a;">Carlos Gomez · En Ruta</div>
+        <div style="font-weight: 800; font-size: 13px; color: #0f172a;">Andres Lopez · En Ruta</div>
         <div style="font-size: 11px; color: #475569;">📍 Av. Antúnez de Mayolo cdra. 14</div>
         <div style="font-size: 11px; color: #475569;">Velocidad: <strong>24 km/h</strong></div>
         <div style="font-size: 11px; color: #059669; font-weight: bold; margin-top: 4px;">✅ Geocerca activa</div>

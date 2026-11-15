@@ -25,11 +25,11 @@ export const DashboardComercialView: React.FC<DashboardComercialViewProps> = ({
   };
 
   const topSKUs = [
-    { name: 'Leche Gloria Evaporada Entera 400g', brand: 'Gloria', units: '42,500 und', total: 178500, share: 88 },
-    { name: 'Aceite Primor Clásico Premium 900ml', brand: 'Alicorp', units: '28,100 und', total: 224800, share: 79 },
-    { name: 'Nescafé Tradición Frasco 50g', brand: 'Nestlé', units: '19,400 und', total: 155200, share: 92 },
-    { name: 'Fideos Don Vittorio Spaghetti 450g', brand: 'Alicorp', units: '36,200 und', total: 108600, share: 85 },
-    { name: 'D’Onofrio Bombones Surtidos Caja', brand: 'Nestlé', units: '12,800 und', total: 140800, share: 74 },
+    { name: 'Leche Linea Valle Evaporada Entera 400g', brand: 'Linea Valle', units: '42,500 und', total: 178500, share: 88 },
+    { name: 'Aceite Primor Clásico Premium 900ml', brand: 'Linea Mar', units: '28,100 und', total: 224800, share: 79 },
+    { name: 'Cafe Soluble Tradicion 50g', brand: 'Sol Andina', units: '19,400 und', total: 155200, share: 92 },
+    { name: 'Fideos Pasta Dorada Spaghetti 450g', brand: 'Linea Mar', units: '36,200 und', total: 108600, share: 85 },
+    { name: 'Bombones Surtidos Caja Aurora', brand: 'Sol Andina', units: '12,800 und', total: 140800, share: 74 },
   ];
 
   return (
@@ -181,7 +181,7 @@ export const DashboardComercialView: React.FC<DashboardComercialViewProps> = ({
         {/* Brand Share */}
         <div className="bg-[#f2f4f6] dark:bg-[#1e293b] border border-[#e0e3e5] dark:border-[#334155] p-6 rounded-xl shadow-xs">
           <h2 className="text-base font-bold text-[#191c1e] dark:text-[#f1f5f9] mb-1">
-            Participación por Línea Proveedora (Nestlé / Alicorp / Gloria)
+            Participación por Línea Proveedora (Sol Andina / Linea Mar / Linea Valle)
           </h2>
           <p className="text-xs text-[#45464d] dark:text-[#cbd5e1] mb-4">
             Volumen comercializado y cumplimiento de cuotas de fabricante
@@ -189,17 +189,17 @@ export const DashboardComercialView: React.FC<DashboardComercialViewProps> = ({
 
           <div className="grid grid-cols-3 gap-3 mb-5">
             <div className="p-3 bg-white dark:bg-[#1e293b] border border-[#e0e3e5] dark:border-[#334155] rounded-lg text-center">
-              <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 block">Nestlé Perú</span>
+              <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 block">Sol Andina Peru</span>
               <span className="text-lg font-extrabold text-[#191c1e] dark:text-[#f1f5f9] font-mono">44.2%</span>
               <span className="text-[10px] text-emerald-700 font-semibold block mt-0.5">+2.1% vs mes ant.</span>
             </div>
             <div className="p-3 bg-white dark:bg-[#1e293b] border border-[#e0e3e5] dark:border-[#334155] rounded-lg text-center">
-              <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 block">Alicorp</span>
+              <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 block">Linea Mar</span>
               <span className="text-lg font-extrabold text-[#191c1e] dark:text-[#f1f5f9] font-mono">34.0%</span>
               <span className="text-[10px] text-emerald-700 font-semibold block mt-0.5">+1.5% vs mes ant.</span>
             </div>
             <div className="p-3 bg-white dark:bg-[#1e293b] border border-[#e0e3e5] dark:border-[#334155] rounded-lg text-center">
-              <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 block">Leche Gloria</span>
+              <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 block">Leche Linea Valle</span>
               <span className="text-lg font-extrabold text-[#191c1e] dark:text-[#f1f5f9] font-mono">21.8%</span>
               <span className="text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-semibold block mt-0.5">Estable</span>
             </div>

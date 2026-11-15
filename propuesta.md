@@ -32,13 +32,13 @@ El sistema integra gestión comercial, rutas de ventas, seguimiento en tiempo re
 - **Entrega On-Time & In-Full (OTIF)**: Indicador clave para evaluar nivel de servicio.
 - **Matriz de Rendimiento Regional**: Comparativo por zona (Lima Norte/Sur/Centro/Este) con cumplimiento y margen.
 - **Trayectoria del Desempeño General**: Gráfica histórica de evolución para visualizar tendencias.
-- **Seguimiento a Rebates de Proveedores**: Control de objetivos con Nestlé, Alicorp, Gloria, entre otros.
+- **Seguimiento a Rebates de Proveedores**: Control de objetivos con Linea Sol, Linea Mar y Linea Valle, entre otros.
 - **Autorización de Bonificaciones**: Agilización de aprobaciones gerenciales.
 
 ### 3.3. Supervisión Operativa (Mesa)
 
 - **KPI's de Equipo**: Venta total, cumplimiento, vendedores activos, asistencia.
-- **Rendimiento por Marca y Categoría**: Distribución por Nestlé/Alicorp/Gloria y por línea de producto.
+- **Rendimiento por Marca y Categoría**: Distribución por Linea Sol / Linea Mar / Linea Valle y por línea de producto.
 - **Ranking Detallado de Vendedores**: Comparativo con indicadores clave.
 - **Alertas Operativas**: Notificaciones tempranas ante desvíos.
 - **Broadcast a la Mesa**: Comunicación inmediata a todo el equipo.

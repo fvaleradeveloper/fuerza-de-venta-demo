@@ -19,7 +19,7 @@ import { AttendanceModal } from './components/AttendanceModal';
 import { PromptModal } from './components/PromptModal';
 import { AccessDeniedCard } from './components/AccessDeniedCard';
 
-export const MASTER_PROMPT_TEXT = `Act as an expert Principal Full-Stack Engineer and Senior Product Designer. Build a production-grade, highly polished Enterprise B2B SaaS web application named "Fuerza de Venta - Plataforma de Inteligencia Comercial" for commercial distribution, sales supervision, and route telemetry tailored to fast-moving consumer goods (FMCG / Consumo Masivo - Nestlé, Alicorp, Gloria) in Lima, Peru.
+export const MASTER_PROMPT_TEXT = `Act as an expert Principal Full-Stack Engineer and Senior Product Designer. Build a production-grade, highly polished Enterprise B2B SaaS web application named "Fuerza de Venta - Plataforma de Inteligencia Comercial" for commercial distribution, sales supervision, and route telemetry tailored to fast-moving consumer goods (FMCG / Consumo Masivo - Sol Andina, lineaMar, lineaValle) in Lima, Peru.
 
 ---
 
@@ -33,10 +33,10 @@ export const MASTER_PROMPT_TEXT = `Act as an expert Principal Full-Stack Enginee
 ### 2. ROLE-BASED ACCESS CONTROL (RBAC) & AUTHORIZATION LEVELS (CRITICAL REQUIREMENT)
 The application MUST strictly enforce three distinct authorization tiers with authenticated session segregation:
 
-1. LEVEL 1: ROL VENDEDOR (Field Sales Representative - e.g., Carlos Gomez, Ruta Norte-A)
+1. LEVEL 1: ROL VENDEDOR (Field Sales Representative - e.g., Andres Lopez, Ruta Norte-A)
    - Scope & Permissions: Strictly restricted to their own assigned route, personal customer schedule, and individual performance.
    - What the Vendedor SEES:
-     * "Vista Vendedor": Daily personal quota progress bar (S/. 18,400 / S/. 16,000), individual commission estimator with bonus tier, their own daily visit checklist (Bodega Don Pepe, Minimarket Las Flores, etc.) with statuses (Completado, En Proceso, Pendiente), and the interactive Quick Order Taking Pad.
+     * "Vista Vendedor": Daily personal quota progress bar (S/. 18,400 / S/. 16,000), individual commission estimator with bonus tier, their own daily visit checklist (Bodega El Alba, Minimarket La Colina, etc.) with statuses (Completado, En Proceso, Pendiente), and the interactive Quick Order Taking Pad.
      * "Rutas y Mapas": Only displays their personal GPS route path, current location, and assigned bodega geofences.
    - What the Vendedor CANNOT SEE (Strictly Hidden / Blocked):
      * CANNOT see other salesmen's sales, individual rankings, or salaries.
@@ -46,23 +46,23 @@ The application MUST strictly enforce three distinct authorization tiers with au
      * CANNOT access "Reportes & Exportar": Cannot download company-wide CSV financial ledgers.
    - Sidebar UI Behavior: Restricted navigation items are locked with a lock icon and disabled. Attempting direct navigation renders a high-security "Acceso Restringido" access gate.
 
-2. LEVEL 2: ROL SUPERVISOR (Workstation / Mesa Leader - e.g., Carlos Mendoza, Líder Alfa)
+2. LEVEL 2: ROL SUPERVISOR (Workstation / Mesa Leader - e.g., Laura Vega, Líder Alfa)
    - Scope & Permissions: Manages their designated operational team (e.g., Mesa Lima Norte - Alfa, 12 sales reps).
    - What the Supervisor SEES:
-     * "Vista Supervisor": Full access to Mesa KPIs (Venta Total S/. 148,250, Cumplimiento 94.8%, 12/12 activos, Asistencia 96.5%), brand share distribution bars (Nestlé, Alicorp, Gloria) vs categories, urgent Mesa Alerts, and the Detailed Seller Ranking Table.
+     * "Vista Supervisor": Full access to Mesa KPIs (Venta Total S/. 148,250, Cumplimiento 94.8%, 12/12 activos, Asistencia 96.5%), brand share distribution bars (Sol Andina, lineaMar, lineaValle) vs categories, urgent Mesa Alerts, and the Detailed Seller Ranking Table.
      * Operative Actions: Can initiate voice calls with reps, log supervisory notes, override/validate attendance check-ins, and trigger urgent audio/push "Broadcast a la Mesa".
      * "Dashboard Comercial": Operational sales velocity and channel mix for their assigned regional territory.
      * "Vista Vendedor": Can inspect the individual portfolio and order history of any representative under their supervision.
      * "Rutas y Mapas": Real-time GPS fleet monitoring of all reps in the mesa, geofence compliance, and stop durations.
      * "Reportes & Exportar": Operational closing reports and export to CSV/Excel for route settlement.
    - What the Supervisor CANNOT SEE:
-     * CANNOT access "Vista Gerencia": The Supervisor is strictly forbidden from viewing corporate gross profit margins (28.4%), company-wide P&L, strategic manufacturer volume rebates (Nestlé 3.2%, Alicorp 2.8%, Gloria 2.0%), credit exception overrides, or budget reallocations across other regional zones.
+     * CANNOT access "Vista Gerencia": The Supervisor is strictly forbidden from viewing corporate gross profit margins (28.4%), company-wide P&L, strategic manufacturer volume rebates (Sol Andina 3.2%, lineaMar 2.8%, lineaValle 2.0%), credit exception overrides, or budget reallocations across other regional zones.
 
-3. LEVEL 3: ROL GERENCIA GENERAL / DIRECCIÓN COMERCIAL (Executive Superadmin - e.g., Ing. Roberto Thorne)
+3. LEVEL 3: ROL GERENCIA GENERAL / DIRECCIÓN COMERCIAL (Executive Superadmin - e.g., Ing. Ricardo Solis)
    - Scope & Permissions: Unrestricted corporate visibility across all regions (Lima Norte, Lima Sur, Lima Centro, Lima Este), commercial finance, and operational auditing.
    - What Gerencia SEES (Exclusive Privileges):
      * "Vista Gerencia": Consolidated C-Suite P&L (S/. 4,131,000 MTD), Gross Profit Margin analysis (28.4%), On-Time In-Full delivery rate (97.1%), and Regional Comparison Matrix comparing all 4 Lima zones with profitability benchmarks.
-     * Manufacturer Contract Management: Exclusive tracker for annual volume rebates and supplier negotiations (Nestlé, Alicorp, Leche Gloria).
+     * Manufacturer Contract Management: Exclusive tracker for annual volume rebates and supplier negotiations (Sol Andina, lineaMar, Leche Linea Valle).
      * Executive Triggers: Authorization button for monthly bonus payouts and credit exception approvals.
      * Unrestricted access to all 6 modules without barriers.
 
@@ -73,7 +73,7 @@ The application MUST strictly enforce three distinct authorization tiers with au
 - Tax Switcher (IGV): "Con IGV" vs "Sin IGV" - dynamically recalculates all monetary values across every authorized screenview using Peruvian 18% General Sales Tax (S/. amount / 1.18).
 - Zone Selector: [Todas las Zonas | Lima Norte | Lima Sur | Lima Este | Lima Centro] - filters datasets and statistics accordingly.
 - Operational Notifications: Interactive notification center for route delays, quota milestones, and stock alerts.
-- User Profile: Dynamically switches avatar and credentials based on active role (Carlos Gomez for Vendedor, Carlos Mendoza for Supervisor, Roberto Thorne for Gerencia).
+- User Profile: Dynamically switches avatar and credentials based on active role (Andres Lopez for Vendedor, Laura Vega for Supervisor, Ricardo Solis for Gerencia).
 
 ---
 
@@ -81,14 +81,14 @@ The application MUST strictly enforce three distinct authorization tiers with au
 1. Vista Supervisor (Supervisión Operativa - Primary Reference):
    - Header with Mesa de Trabajo: Lima Norte - Alfa, supervisor selector, zone selector, and date picker.
    - 4 Operational KPI Cards: Venta Total de Equipo (S/. 148,250 / Meta S/. 135k, +12.4%), Cumplimiento Promedio (94.8%), Vendedores Activos (100%), Asistencia Diaria (96.5%).
-   - Rendimiento por Marca y Vendedor: Segmented horizontal progress bars showing Nestlé / Alicorp / Gloria percentage breakdown for reps with toggle to "Categorías" (Lácteos, Abarrotes, Golosinas) and legend.
+   - Rendimiento por Marca y Vendedor: Segmented horizontal progress bars showing Sol Andina / Linea Mar / Linea Valle percentage breakdown for reps with toggle to "Categorías" (Lácteos, Abarrotes, Golosinas) and legend.
    - Alertas de Mesa: Urgent operational cards + button "Enviar Broadcast a la Mesa".
    - Ranking Detallado de Vendedores: Live search + filter dropdown + interactive table (Asistencia, Cuota, Efectividad, Venta Actual, Acciones Rápidas) + pagination.
 
 2. Dashboard Comercial (Commercial Executive Dashboard):
    - Macro MTD billing (S/. 1.48M / S/. 1.6M), Drop size (S/. 428/pedido), Store coverage (94.2%), Rejection rate (1.8%).
    - Sales breakdown by macro-zones (Lima Norte, Centro, Sur, Este).
-   - Brand share distribution (Nestlé 44.2%, Alicorp 34.0%, Gloria 21.8%) and channel mix (Tradicional 82%, Mayorista 18%).
+   - Brand share distribution (Sol Andina 44.2%, lineaMar 34.0%, lineaValle 21.8%) and channel mix (Tradicional 82%, Mayorista 18%).
    - Top 5 Fast Moving SKUs in Peruvian bodegas.
 
 3. Vista Vendedor (Field Sales Rep Daily Route):
@@ -99,7 +99,7 @@ The application MUST strictly enforce three distinct authorization tiers with au
 4. Vista Gerencia (Executive Management & P&L):
    - C-Suite KPI matrix: Consolidated Revenue, Gross Margin (28.4%), Headcount, OTIF Delivery fulfillment (97.1%).
    - Regional Performance Matrix comparing Lima Norte, Centro, Sur, and Este with compliance and gross margin benchmarks.
-   - Strategic Manufacturer Rebates tracker (Nestlé 3.2%, Alicorp 2.8%, Gloria 2.0%).
+   - Strategic Manufacturer Rebates tracker (Sol Andina 3.2%, lineaMar 2.8%, lineaValle 2.0%).
    - Executive action trigger to authorize monthly bonuses.
 
 5. Rutas y Mapas (Interactive GPS Telemetry, Street/Avenue Zoom & GIS):
@@ -186,7 +186,7 @@ export default function App() {
       telefono: '01-1111111',
       celular: '+51 911 111 111',
       email: 'elamanecer@demo.com',
-      vendedorAsignado: 'Javier Paredes',
+      vendedorAsignado: 'Mateo Rivas',
       vendedorId: 'v-1',
       formaPago: 'Contado',
       lineaCredito: 0,
@@ -207,7 +207,7 @@ export default function App() {
       telefono: '01-2222222',
       celular: '+51 922 222 222',
       email: 'laesperanza@demo.com',
-      vendedorAsignado: 'Javier Paredes',
+      vendedorAsignado: 'Mateo Rivas',
       vendedorId: 'v-1',
       formaPago: 'Crédito 15',
       lineaCredito: 5000,
@@ -228,7 +228,7 @@ export default function App() {
       telefono: '01-3333333',
       celular: '+51 933 333 333',
       email: 'elprogreso@demo.com',
-      vendedorAsignado: 'Rosa Cárdenas',
+      vendedorAsignado: 'Lucia Herrera',
       vendedorId: 'v-4',
       formaPago: 'Crédito 30',
       lineaCredito: 8000,
@@ -283,7 +283,7 @@ export default function App() {
       currentSales: 18400 - idx * 200,
       completedVisits: 35,
       totalVisits: 40,
-      brands: { nestle: 40, alicorp: 35, gloria: 25 },
+      brands: { lineaSol: 40, lineaMar: 35, lineaValle: 25 },
       categories: { lacteos: 40, abarrotes: 40, golosinas: 20 },
     }));
   const [activeVendedor, setActiveVendedor] = useState<Vendedor>(vendedoresInit[0]);

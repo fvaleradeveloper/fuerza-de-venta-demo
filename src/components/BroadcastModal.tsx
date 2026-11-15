@@ -100,7 +100,7 @@ export const BroadcastModal: React.FC<BroadcastModalProps> = ({
               <textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="Ejemplo: Priorizar colocación de packs promocionales Nestlé D’Onofrio en clientes clase A antes de las 14:00 hrs..."
+                placeholder="Ejemplo: Priorizar colocación de packs promocionales Sol Andina Helados del Sol en clientes clase A antes de las 14:00 hrs..."
                 rows={4}
                 className="w-full text-xs p-3 rounded-lg border border-slate-300 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 outline-none text-slate-800 resize-none"
                 required

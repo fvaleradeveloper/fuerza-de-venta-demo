@@ -17,9 +17,9 @@ export interface Vendedor {
   completedVisits: number;
   totalVisits: number;
   brands: {
-    nestle: number; // percentage
-    alicorp: number;
-    gloria: number;
+    lineaSol: number; // percentage
+    lineaMar: number;
+    lineaValle: number;
   };
   categories: {
     lacteos: number;

@@ -114,9 +114,9 @@ export const SupervisorView: React.FC<SupervisorViewProps> = ({
               onChange={(e) => onChangeSupervisor(e.target.value)}
               className="bg-white dark:bg-[#1e293b] border border-[#c6c6cd] dark:border-[#475569] rounded-lg px-3 py-1.5 text-xs font-semibold text-[#191c1e] dark:text-[#f1f5f9] outline-none shadow-2xs"
             >
-              <option value="Carlos Mendoza (Líder Alfa)">Carlos Mendoza (Líder Alfa)</option>
-              <option value="Ana Lucía Torres">Ana Lucía Torres</option>
-              <option value="Jorge Ramirez">Jorge Ramirez</option>
+              <option value="Laura Vega (Líder Alfa)">Laura Vega (Líder Alfa)</option>
+              <option value="Elena Torres">Elena Torres</option>
+              <option value="Ricardo Silva">Ricardo Silva</option>
             </select>
           </div>
 
@@ -254,7 +254,7 @@ export const SupervisorView: React.FC<SupervisorViewProps> = ({
               </h2>
               <p className="text-xs text-[#45464d] dark:text-[#cbd5e1] mt-0.5">
                 {breakdownType === 'marcas'
-                  ? 'Distribución de ventas por líneas principales (Nestlé, Alicorp, Gloria)'
+                  ? 'Distribución de ventas por líneas principales (Sol Andina, lineaMar, lineaValle)'
                   : 'Distribución por categorías estratégicas (Lácteos, Abarrotes, Golosinas)'}
               </p>
             </div>
@@ -285,12 +285,12 @@ export const SupervisorView: React.FC<SupervisorViewProps> = ({
           {/* Rep rows with stacked bar visualization */}
           <div className="flex flex-col gap-4 my-2">
             {vendedores.slice(0, 4).map((v) => {
-              const b1 = breakdownType === 'marcas' ? v.brands.nestle : v.categories.lacteos;
-              const b2 = breakdownType === 'marcas' ? v.brands.alicorp : v.categories.abarrotes;
-              const b3 = breakdownType === 'marcas' ? v.brands.gloria : v.categories.golosinas;
-              const label1 = breakdownType === 'marcas' ? 'Nestlé' : 'Lácteos';
-              const label2 = breakdownType === 'marcas' ? 'Alicorp' : 'Abarrotes';
-              const label3 = breakdownType === 'marcas' ? 'Gloria' : 'Golosinas';
+              const b1 = breakdownType === 'marcas' ? v.brands.lineaSol : v.categories.lacteos;
+              const b2 = breakdownType === 'marcas' ? v.brands.lineaMar : v.categories.abarrotes;
+              const b3 = breakdownType === 'marcas' ? v.brands.lineaValle : v.categories.golosinas;
+              const label1 = breakdownType === 'marcas' ? 'Sol Andina' : 'Lácteos';
+              const label2 = breakdownType === 'marcas' ? 'Linea Mar' : 'Abarrotes';
+              const label3 = breakdownType === 'marcas' ? 'Linea Valle' : 'Golosinas';
 
               return (
                 <div key={v.id} className="flex items-center gap-3">
@@ -339,15 +339,15 @@ export const SupervisorView: React.FC<SupervisorViewProps> = ({
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-1.5 font-medium">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#131b2e]"></span>{' '}
-                {breakdownType === 'marcas' ? 'Nestlé' : 'Lácteos'}
+                {breakdownType === 'marcas' ? 'Sol Andina' : 'Lácteos'}
               </span>
               <span className="flex items-center gap-1.5 font-medium">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#006c49]"></span>{' '}
-                {breakdownType === 'marcas' ? 'Alicorp' : 'Abarrotes'}
+                {breakdownType === 'marcas' ? 'Linea Mar' : 'Abarrotes'}
               </span>
               <span className="flex items-center gap-1.5 font-medium">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#76777d]"></span>{' '}
-                {breakdownType === 'marcas' ? 'Gloria' : 'Golosinas'}
+                {breakdownType === 'marcas' ? 'Linea Valle' : 'Golosinas'}
               </span>
             </div>
             <span className="text-[11px] text-[#76777d] dark:text-[#94a3b8]">Actualizado hace 15 min</span>
@@ -370,7 +370,7 @@ export const SupervisorView: React.FC<SupervisorViewProps> = ({
               <div className="flex flex-col">
                 <span className="text-xs font-bold">Baja efectividad en ruta Norte-B</span>
                 <span className="text-[11px] leading-snug mt-0.5">
-                  El vendedor Luis Huamán presenta 68% de conversión de visitas este turno.
+                  El vendedor Jorge Campos presenta 68% de conversión de visitas este turno.
                 </span>
               </div>
             </div>
@@ -379,7 +379,7 @@ export const SupervisorView: React.FC<SupervisorViewProps> = ({
             <div className="p-3.5 rounded-xl bg-[#6cf8bb]/30 text-[#00714d] flex items-start gap-3 border border-emerald-300">
               <ShieldCheck className="w-5 h-5 shrink-0 mt-0.5" />
               <div className="flex flex-col">
-                <span className="text-xs font-bold">Meta superada en Nestlé</span>
+                <span className="text-xs font-bold">Meta superada en Sol Andina</span>
                 <span className="text-[11px] leading-snug mt-0.5">
                   El equipo superó el objetivo diario de distribución en 18% antes del mediodía.
                 </span>

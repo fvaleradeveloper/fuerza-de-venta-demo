@@ -111,7 +111,7 @@ export const PromptModal: React.FC<PromptModalProps> = ({
               <div className="p-4 bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-600 rounded-lg">
                 <h4 className="font-bold text-sm text-slate-900 mb-2">1. Vista Supervisor (Supervisión Operativa)</h4>
                 <p className="text-xs text-slate-600 dark:text-slate-300">
-                  Implementación exacta de la pantalla mostrada en el diseño: Mesa de Trabajo Lima Norte - Alfa, 4 KPIs operativos (Venta total S/. 148,250 con meta S/. 135k, Cumplimiento 94.8%, 12/12 Vendedores activos, Asistencia diaria 96.5%), gráfico de barras segmentadas por marcas (Nestlé, Alicorp, Gloria) vs categorías, Alertas de mesa con botón para Enviar Broadcast, y Ranking Detallado con tabla de asistencia, cuotas, efectividad y acciones rápidas (Llamar y Registrar Asistencia).
+                  Implementación exacta de la pantalla mostrada en el diseño: Mesa de Trabajo Lima Norte - Alfa, 4 KPIs operativos (Venta total S/. 148,250 con meta S/. 135k, Cumplimiento 94.8%, 12/12 Vendedores activos, Asistencia diaria 96.5%), gráfico de barras segmentadas por marcas (Sol Andina, lineaMar, lineaValle) vs categorías, Alertas de mesa con botón para Enviar Broadcast, y Ranking Detallado con tabla de asistencia, cuotas, efectividad y acciones rápidas (Llamar y Registrar Asistencia).
                 </p>
               </div>
 
@@ -125,7 +125,7 @@ export const PromptModal: React.FC<PromptModalProps> = ({
               <div className="p-4 bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-600 rounded-lg">
                 <h4 className="font-bold text-sm text-slate-900 mb-2">3. Vista Vendedor</h4>
                 <p className="text-xs text-slate-600 dark:text-slate-300">
-                  Herramienta de campo del representante comercial (Carlos Gomez - Ruta Norte-A): Cuota diaria del vendedor, hoja de ruta de visitas a bodegas y minimarkets de Los Olivos y SMP, toma de pedidos por SKU y cálculo de comisiones.
+                  Herramienta de campo del representante comercial (Andres Lopez - Ruta Norte-A): Cuota diaria del vendedor, hoja de ruta de visitas a bodegas y minimarkets de Los Olivos y SMP, toma de pedidos por SKU y cálculo de comisiones.
                 </p>
               </div>
 
