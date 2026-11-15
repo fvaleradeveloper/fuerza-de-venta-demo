@@ -106,11 +106,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Brand Header */}
       <div className="px-6 mb-5 flex items-center justify-between">
         <div>
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-xl tracking-tight text-[#191c1e] dark:text-[#f1f5f9]">Total Calidad</span>
+<div className="flex items-center gap-2">
+              <img
+                src="/logo-icon.svg"
+                alt="Fuerza de Venta"
+                className="w-5 h-5"
+              />
+              <span className="font-bold text-xl tracking-tight text-[var(--brand-text)] dark:text-[var(--brand-text-dark)]">Fuerza de Venta</span>
             <span className="px-1.5 py-0.5 text-[10px] font-semibold bg-[#131b2e] text-white rounded">PRO</span>
           </div>
-          <p className="text-xs text-[#76777d] dark:text-[#94a3b8] mt-0.5">Andean Logistics Intelligence</p>
+          <p className="text-xs text-[var(--brand-text-muted)] dark:text-[var(--brand-text-muted-dark)] mt-0.5">Plataforma de Inteligencia Comercial</p>
         </div>
         <button
           onClick={onToggleSidebar}

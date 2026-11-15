@@ -155,7 +155,7 @@ export const PromptModal: React.FC<PromptModalProps> = ({
 
         {/* Footer */}
         <div className="px-6 py-3 bg-white dark:bg-[#1e293b] border-t border-slate-200 dark:border-slate-600 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500">
-          <span>Sistema: Total Calidad v2.4 (Andean Logistics)</span>
+          <span>Sistema: Fuerza de Venta v2.4 (Plataforma de Inteligencia Comercial)</span>
           <button
             onClick={handleCopy}
             className="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1 cursor-pointer"

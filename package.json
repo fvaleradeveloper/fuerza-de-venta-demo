@@ -1,8 +1,9 @@
 {
-  "name": "react-example",
+  "name": "fuerza-de-venta",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Plataforma de inteligencia comercial, supervisión de rutas y control de distribución para consumo masivo",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
     "build": "vite build",

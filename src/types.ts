@@ -158,6 +158,28 @@ export interface Cliente {
 }
 
 export type EmpleadoRol = 'Vendedor' | 'Supervisor' | 'Auxiliar' | 'Jefe de Ventas' | 'Cobrador' | 'Logística' | 'Administrativo';
+
+export interface Empleado {
+  id: string;
+  codigo: string;
+  nombres: string;
+  apellidos: string;
+  dni: string;
+  rol: EmpleadoRol;
+  cargo: string;
+  telefono: string;
+  celular: string;
+  email: string;
+  zona: string;
+  supervisorId?: string;
+  supervisorNombre: string;
+  fechaIngreso: string;
+  sueldoBase: number;
+  comisionPorcentaje: number;
+  activo: boolean;
+  direccion: string;
+  distrito: string;
+}
 export interface ClienteUsuario {
   id: string;
   clienteId: string;

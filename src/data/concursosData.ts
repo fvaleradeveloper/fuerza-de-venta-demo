@@ -105,7 +105,7 @@ export const CONCURSOS: Concurso[] = [
     desde: '',
     hasta: '',
     notasVendedor: ['Solo marcas Mars: Snickers, M&M\'s, Milky Way y Skittles.'],
-    notasInternas: 'Concurso Mars TCA. Solo marcas Mars (Snickers, M&M\'s, Milky Way, Skittles). Ambas escalas exigen mínimo 30 coberturas.',
+    notasInternas: 'Concurso Mars FV. Solo marcas Mars (Snickers, M&M\'s, Milky Way, Skittles). Ambas escalas exigen mínimo 30 coberturas.',
     revision: 'OK',
     asiLoVeVendedor: 'E1: S/ 1,770 → S/ 100\nE2: S/ 2,950 → S/ 200',
     premioMaximo: 200,

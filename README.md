@@ -1,6 +1,6 @@
-# TCA - Sistema de Gestión Comercial (Total Calidad Alimentaria)
+# Fuerza de Venta - Plataforma de Inteligencia Comercial
 
-Aplicación web para la gestión comercial de Total Calidad Alimentaria (TCA). Permite el seguimiento de rutas de vendedores, toma de pedidos, supervisión operativa, gestión gerencial, reportes, concursos y portal para clientes. Construida con React + TypeScript + Vite + Tailwind CSS v4.
+Aplicación web para la gestión comercial de la Fuerza de Venta. Permite el seguimiento de rutas de vendedores, toma de pedidos, supervisión operativa, gestión gerencial, reportes, concursos y portal para clientes. Construida con React + TypeScript + Vite + Tailwind CSS v4.
 
 ## Tabla de Contenidos
 
@@ -47,14 +47,14 @@ Aplicación web para la gestión comercial de Total Calidad Alimentaria (TCA). P
 
 ## Arquitectura
 
-La aplicación funciona actualmente con **datos mock** (`src/data/`), pero está diseñada para conectarse a **Oracle REST Data Services (ORDS)** con paquetes PL/SQL (`PKG_TCA_WEBAPI`).
+La aplicación funciona actualmente con **datos mock** (`src/data/`), pero está diseñada para conectarse a **Oracle REST Data Services (ORDS)** con paquetes PL/SQL (`PKG_FV_WEBAPI`).
 
 ```text
 Frontend (React + Vite)
     ↓ HTTP/REST (JSON)
 ORDS (Oracle REST Data Services)
     ↓
-Paquetes PL/SQL (PKG_TCA_WEBAPI)
+Paquetes PL/SQL (PKG_FV_WEBAPI)
     ↓
 Base de Datos Oracle (Tablas, Vistas, Vistas Materializadas)
 ```
@@ -69,8 +69,8 @@ Base de Datos Oracle (Tablas, Vistas, Vistas Materializadas)
 
 1. **Clonar el repositorio**
 ```bash
-git clone https://github.com/fvaleradeveloper/tca_2.git
-cd tca_2
+git clone https://github.com/fvaleradeveloper/fuerza-de-venta.git
+cd fuerza-de-venta
 ```
 
 2. **Instalar dependencias**
@@ -81,7 +81,7 @@ npm install
 3. **Configurar variables de entorno**
 Crear archivo `.env.local` en la raíz:
 ```env
-VITE_API_BASE_URL=http://localhost:8080/ords/tca
+VITE_API_BASE_URL=http://localhost:8080/ords/fv
 VITE_USE_MOCK=true  # Cambiar a false al conectar con Oracle
 ```
 
@@ -195,9 +195,9 @@ Frontend (RutasMapasView.tsx)
 
 | Endpoint | Método | Descripción |
 |---|---|---|
-| `/tca/rutas/gps/actualizar` | `POST` | Recibe ubicación desde celular del vendedor. Actualiza `GPS_ULTIMA_POSICION` con UPSERT. Guarda histórico en `GPS_LOG`. |
-| `/tca/rutas/monitoreo-gps` | `GET` | Última posición de todos los vendedores activos para el mapa de supervisión. |
-| `/tca/rutas/historial-posiciones` | `GET` | Trazado histórico por vendedor/fecha para auditoría. |
+| `/fv/rutas/gps/actualizar` | `POST` | Recibe ubicación desde celular del vendedor. Actualiza `GPS_ULTIMA_POSICION` con UPSERT. Guarda histórico en `GPS_LOG`. |
+| `/fv/rutas/monitoreo-gps` | `GET` | Última posición de todos los vendedores activos para el mapa de supervisión. |
+| `/fv/rutas/historial-posiciones` | `GET` | Trazado histórico por vendedor/fecha para auditoría. |
 
 ### Consideraciones de Seguridad y Privacidad
 
@@ -231,7 +231,7 @@ Reacomodar la hoja de ruta del vendedor basado en análisis de rendimiento de ve
 
 | Endpoint | Método | Descripción |
 |---|---|---|
-| `/tca/rutas/optimizar-sugerido` | `POST` | Retorna nuevo orden sugerido con `orden_sugerido[]`, distancias, tiempos y `ahorro_km/min`. |
+| `/fv/rutas/optimizar-sugerido` | `POST` | Retorna nuevo orden sugerido con `orden_sugerido[]`, distancias, tiempos y `ahorro_km/min`. |
 
 ## Portal de Clientes
 
@@ -252,91 +252,91 @@ Cliente crea pedido -> queda `PENDIENTE_CONFIRMACION` -> Vendedor recibe notific
 
 ## APIs Necesarias para Integración con Oracle
 
-Todas las APIs deben exponerse vía **Oracle REST Data Services (ORDS)** con **Package PL/SQL `PKG_TCA_WEBAPI`** retornando `CLOB` JSON.
+Todas las APIs deben exponerse vía **Oracle REST Data Services (ORDS)** con **Package PL/SQL `PKG_FV_WEBAPI`** retornando `CLOB` JSON.
 
 ### 1. Autenticación
 | Endpoint | Método | Procedimiento | Parámetros | Uso |
 |---|---|---|---|---|
-| `/tca/auth/login` | POST | `AUTH_LOGIN` | `p_usuario`, `p_clave_hash` | Login admin/vendedor/supervisor/gerencia |
-| `/tca/auth/perfil` | GET | `GET_PERFIL` | `p_token` | Perfil usuario |
-| `/tca/cliente/login` | POST | `AUTH_CLIENTE_LOGIN` | `p_identificador`, `p_telefono`/`p_otp` | Login portal cliente |
+| `/fv/auth/login` | POST | `AUTH_LOGIN` | `p_usuario`, `p_clave_hash` | Login admin/vendedor/supervisor/gerencia |
+| `/fv/auth/perfil` | GET | `GET_PERFIL` | `p_token` | Perfil usuario |
+| `/fv/cliente/login` | POST | `AUTH_CLIENTE_LOGIN` | `p_identificador`, `p_telefono`/`p_otp` | Login portal cliente |
 
 ### 2. Dashboard / Gerencia
 | Endpoint | Método | Procedimiento | Parámetros | Uso |
 |---|---|---|---|---|
-| `/tca/dashboard/kpi-gerencia` | GET | `GET_KPI_GERENCIA` | `p_fecha_ini`, `p_fecha_fin`, `p_zona_id`, `p_supervisor_id` | KPI globales |
-| `/tca/dashboard/ventas-por-vendedor` | GET | `GET_VENTAS_POR_VENDEDOR` | `p_fecha_ini`, `p_fecha_fin`, `p_zona_id` | Ranking vendedores |
-| `/tca/dashboard/evolucion-mensual` | GET | `GET_EVOLUCION_MENSUAL` | `p_anio`, `p_zona_id` | Evolutivo mensual |
-| `/tca/dashboard/top-productos` | GET | `GET_TOP_PRODUCTOS` | `p_fecha_ini`, `p_fecha_fin`, `p_top` | Top productos |
+| `/fv/dashboard/kpi-gerencia` | GET | `GET_KPI_GERENCIA` | `p_fecha_ini`, `p_fecha_fin`, `p_zona_id`, `p_supervisor_id` | KPI globales |
+| `/fv/dashboard/ventas-por-vendedor` | GET | `GET_VENTAS_POR_VENDEDOR` | `p_fecha_ini`, `p_fecha_fin`, `p_zona_id` | Ranking vendedores |
+| `/fv/dashboard/evolucion-mensual` | GET | `GET_EVOLUCION_MENSUAL` | `p_anio`, `p_zona_id` | Evolutivo mensual |
+| `/fv/dashboard/top-productos` | GET | `GET_TOP_PRODUCTOS` | `p_fecha_ini`, `p_fecha_fin`, `p_top` | Top productos |
 
 ### 3. Vendedor
 | Endpoint | Método | Procedimiento | Parámetros | Uso |
 |---|---|---|---|---|
-| `/tca/vendedor/ruta-diaria` | GET | `GET_RUTA_DIARIA_VENDEDOR` | `p_vendedor_id`, `p_fecha` | Hoja de ruta |
-| `/tca/vendedor/resumen-dia` | GET | `GET_RESUMEN_DIA_VENDEDOR` | `p_vendedor_id`, `p_fecha` | Resumen diario |
-| `/tca/vendedor/pedidos-por-confirmar` | GET | `GET_PEDIDOS_POR_CONFIRMAR` | `p_vendedor_id`, `p_estado` | Pedidos portal cliente |
-| `/tca/vendedor/pedido-rapido/confirmar` | POST | `CONFIRMAR_PEDIDO_RAPIDO` | `p_pedido_rapido_id`, `p_vendedor_id`, `p_items_json`, `p_observaciones_vendedor`, `p_accion` | Rectificar/confirmar/rechazar |
-| `/tca/vendedor/toma-pedido` | POST | `REGISTRAR_TOMA_PEDIDO` | `p_visita_id`, `p_vendedor_id`, `p_cliente_id`, `p_items_json`, `p_forma_pago`, `p_observaciones` | Toma de pedido rápida |
-| `/tca/vendedor/checkin` | POST | `REGISTRAR_CHECKIN_VISITA` | `p_visita_id`, `p_vendedor_id`, `p_latitud`, `p_longitud`, `p_accuracy`, `p_fecha_hora` | Check-in geocercado |
+| `/fv/vendedor/ruta-diaria` | GET | `GET_RUTA_DIARIA_VENDEDOR` | `p_vendedor_id`, `p_fecha` | Hoja de ruta |
+| `/fv/vendedor/resumen-dia` | GET | `GET_RESUMEN_DIA_VENDEDOR` | `p_vendedor_id`, `p_fecha` | Resumen diario |
+| `/fv/vendedor/pedidos-por-confirmar` | GET | `GET_PEDIDOS_POR_CONFIRMAR` | `p_vendedor_id`, `p_estado` | Pedidos portal cliente |
+| `/fv/vendedor/pedido-rapido/confirmar` | POST | `CONFIRMAR_PEDIDO_RAPIDO` | `p_pedido_rapido_id`, `p_vendedor_id`, `p_items_json`, `p_observaciones_vendedor`, `p_accion` | Rectificar/confirmar/rechazar |
+| `/fv/vendedor/toma-pedido` | POST | `REGISTRAR_TOMA_PEDIDO` | `p_visita_id`, `p_vendedor_id`, `p_cliente_id`, `p_items_json`, `p_forma_pago`, `p_observaciones` | Toma de pedido rápida |
+| `/fv/vendedor/checkin` | POST | `REGISTRAR_CHECKIN_VISITA` | `p_visita_id`, `p_vendedor_id`, `p_latitud`, `p_longitud`, `p_accuracy`, `p_fecha_hora` | Check-in geocercado |
 
 ### 4. Supervisor
 | Endpoint | Método | Procedimiento | Parámetros | Uso |
 |---|---|---|---|---|
-| `/tca/supervisor/resumen-equipo` | GET | `GET_RESUMEN_EQUIPO` | `p_supervisor_id`, `p_fecha`, `p_zona_id` | Resumen equipo |
-| `/tca/supervisor/seguimiento-rutas` | GET | `GET_SEGUIMIENTO_RUTAS` | `p_supervisor_id`, `p_fecha` | Seguimiento rutas |
-| `/tca/supervisor/alertas` | GET | `GET_ALERTAS_SUPERVISOR` | `p_supervisor_id`, `p_fecha` | Alertas operativas |
-| `/tca/supervisor/reasignar-visita` | POST | `REASIGNAR_VISITA` | `p_visita_id`, `p_vendedor_origen_id`, `p_vendedor_destino_id`, `p_motivo`, `p_usuario` | Reasignación |
+| `/fv/supervisor/resumen-equipo` | GET | `GET_RESUMEN_EQUIPO` | `p_supervisor_id`, `p_fecha`, `p_zona_id` | Resumen equipo |
+| `/fv/supervisor/seguimiento-rutas` | GET | `GET_SEGUIMIENTO_RUTAS` | `p_supervisor_id`, `p_fecha` | Seguimiento rutas |
+| `/fv/supervisor/alertas` | GET | `GET_ALERTAS_SUPERVISOR` | `p_supervisor_id`, `p_fecha` | Alertas operativas |
+| `/fv/supervisor/reasignar-visita` | POST | `REASIGNAR_VISITA` | `p_visita_id`, `p_vendedor_origen_id`, `p_vendedor_destino_id`, `p_motivo`, `p_usuario` | Reasignación |
 
 ### 5. Rutas y Mapas
 | Endpoint | Método | Procedimiento | Parámetros | Uso |
 |---|---|---|---|---|
-| `/tca/rutas/gps/actualizar` | POST | `ACTUALIZAR_POSICION_GPS` | `p_vendedor_id`, `p_latitud`, `p_longitud`, `p_velocidad_kmh`, `p_precision_m`, `p_bateria_pct` | Actualizar GPS desde móvil |
-| `/tca/rutas/monitoreo-gps` | GET | `GET_MONITOREO_GPS` | `p_fecha`, `p_zona_id`, `p_supervisor_id`, `p_solo_activos` | Monitoreo tiempo real |
-| `/tca/rutas/paradas-mapa` | GET | `GET_PARADAS_PARA_MAPA` | `p_vendedor_id`, `p_fecha` | Paradas con coords |
-| `/tca/rutas/historial-posiciones` | GET | `GET_HISTORIAL_GPS` | `p_vendedor_id`, `p_fecha`, `p_hora_ini`, `p_hora_fin` | Historial recorrido |
-| `/tca/rutas/optimizar-sugerido` | POST | `GET_RUTA_OPTIMIZADA_SUGERIDA` | `p_vendedor_id`, `p_fecha`, `p_latitud_actual`, `p_longitud_actual`, `p_visitas_pendientes_json` | Sugerir ruta optimizada |
-| `/tca/rutas/geofences` | GET | `GET_GEOFENCES` | `p_zona_id` | Geocercas por cliente |
+| `/fv/rutas/gps/actualizar` | POST | `ACTUALIZAR_POSICION_GPS` | `p_vendedor_id`, `p_latitud`, `p_longitud`, `p_velocidad_kmh`, `p_precision_m`, `p_bateria_pct` | Actualizar GPS desde móvil |
+| `/fv/rutas/monitoreo-gps` | GET | `GET_MONITOREO_GPS` | `p_fecha`, `p_zona_id`, `p_supervisor_id`, `p_solo_activos` | Monitoreo tiempo real |
+| `/fv/rutas/paradas-mapa` | GET | `GET_PARADAS_PARA_MAPA` | `p_vendedor_id`, `p_fecha` | Paradas con coords |
+| `/fv/rutas/historial-posiciones` | GET | `GET_HISTORIAL_GPS` | `p_vendedor_id`, `p_fecha`, `p_hora_ini`, `p_hora_fin` | Historial recorrido |
+| `/fv/rutas/optimizar-sugerido` | POST | `GET_RUTA_OPTIMIZADA_SUGERIDA` | `p_vendedor_id`, `p_fecha`, `p_latitud_actual`, `p_longitud_actual`, `p_visitas_pendientes_json` | Sugerir ruta optimizada |
+| `/fv/rutas/geofences` | GET | `GET_GEOFENCES` | `p_zona_id` | Geocercas por cliente |
 
 ### 6. Reportes
 | Endpoint | Método | Procedimiento | Parámetros | Uso |
 |---|---|---|---|---|
-| `/tca/reportes/consolidado` | GET | `GET_REPORTE_CONSOLIDADO` | `p_fecha_ini`, `p_fecha_fin`, `p_vendedor_id`, `p_zona_id`, `p_supervisor_id` | Reporte detallado |
-| `/tca/reportes/resumen-por-vendedor` | GET | `GET_RESUMEN_POR_VENDEDOR` | `p_fecha_ini`, `p_fecha_fin`, `p_zona_id` | Resumen agrupado |
-| `/tca/reportes/ventas-por-linea` | GET | `GET_VENTAS_POR_LINEA` | `p_fecha_ini`, `p_fecha_fin`, `p_zona_id` | Ventas por línea/familia |
+| `/fv/reportes/consolidado` | GET | `GET_REPORTE_CONSOLIDADO` | `p_fecha_ini`, `p_fecha_fin`, `p_vendedor_id`, `p_zona_id`, `p_supervisor_id` | Reporte detallado |
+| `/fv/reportes/resumen-por-vendedor` | GET | `GET_RESUMEN_POR_VENDEDOR` | `p_fecha_ini`, `p_fecha_fin`, `p_zona_id` | Resumen agrupado |
+| `/fv/reportes/ventas-por-linea` | GET | `GET_VENTAS_POR_LINEA` | `p_fecha_ini`, `p_fecha_fin`, `p_zona_id` | Ventas por línea/familia |
 
 ### 7. Concursos
 | Endpoint | Método | Procedimiento | Parámetros | Uso |
 |---|---|---|---|---|
-| `/tca/concursos/listado` | GET | `GET_CONCURSOS` | `p_estado`, `p_fecha` | Listado concursos |
-| `/tca/concursos/detalle` | GET | `GET_DETALLE_CONCURSO` | `p_concurso_id` | Detalle concurso |
-| `/tca/concursos/avance` | GET | `GET_AVANCE_CONCURSO` | `p_concurso_id`, `p_vendedor_id`, `p_zona_id` | Avance vs meta |
-| `/tca/concursos/reporte-pdf-datos` | GET | `GET_DATOS_PDF_CONCURSO` | `p_concurso_id`, `p_tipo` | Datos para PDF |
+| `/fv/concursos/listado` | GET | `GET_CONCURSOS` | `p_estado`, `p_fecha` | Listado concursos |
+| `/fv/concursos/detalle` | GET | `GET_DETALLE_CONCURSO` | `p_concurso_id` | Detalle concurso |
+| `/fv/concursos/avance` | GET | `GET_AVANCE_CONCURSO` | `p_concurso_id`, `p_vendedor_id`, `p_zona_id` | Avance vs meta |
+| `/fv/concursos/reporte-pdf-datos` | GET | `GET_DATOS_PDF_CONCURSO` | `p_concurso_id`, `p_tipo` | Datos para PDF |
 
 ### 8. Maestros
 | Endpoint | Método | Procedimiento | Parámetros | Uso |
 |---|---|---|---|---|
-| `/tca/maestros/productos` | GET | `GET_MAESTRO_PRODUCTOS` | `p_filtro`, `p_activo` | Catálogo productos |
-| `/tca/maestros/clientes` | GET | `GET_MAESTRO_CLIENTES` | `p_filtro`, `p_vendedor_id` | Catálogo clientes (con coords) |
-| `/tca/maestros/empleados` | GET | `GET_MAESTRO_EMPLEADOS` | `p_tipo`, `p_activo` | Empleados/vendedores/supervisores |
-| `/tca/maestros/guardar` | POST | `GUARDAR_MAESTRO` | `p_modulo`, `p_accion`, `p_data_json`, `p_usuario` | Crear/actualizar |
-| `/tca/maestros/eliminar` | POST | `ELIMINAR_MAESTRO` | `p_modulo`, `p_id`, `p_usuario`, `p_motivo` | Inactivar (lógico) |
+| `/fv/maestros/productos` | GET | `GET_MAESTRO_PRODUCTOS` | `p_filtro`, `p_activo` | Catálogo productos |
+| `/fv/maestros/clientes` | GET | `GET_MAESTRO_CLIENTES` | `p_filtro`, `p_vendedor_id` | Catálogo clientes (con coords) |
+| `/fv/maestros/empleados` | GET | `GET_MAESTRO_EMPLEADOS` | `p_tipo`, `p_activo` | Empleados/vendedores/supervisores |
+| `/fv/maestros/guardar` | POST | `GUARDAR_MAESTRO` | `p_modulo`, `p_accion`, `p_data_json`, `p_usuario` | Crear/actualizar |
+| `/fv/maestros/eliminar` | POST | `ELIMINAR_MAESTRO` | `p_modulo`, `p_id`, `p_usuario`, `p_motivo` | Inactivar (lógico) |
 
 ### 9. Portal Cliente
 | Endpoint | Método | Procedimiento | Parámetros | Uso |
 |---|---|---|---|---|
-| `/tca/cliente/mis-datos` | GET | `GET_CLIENTE_DETALLE` | `p_cliente_id` | Datos cliente + vendedor asignado |
-| `/tca/cliente/solicitar-visita` | POST | `SOLICITAR_VISITA_CLIENTE` | `p_cliente_id`, `p_vendedor_id`, `p_fecha_preferida`, `p_hora_preferida`, `p_motivo` | Solicitar visita |
-| `/tca/cliente/catalogo-pedido` | GET | `GET_CATALOGO_CLIENTE` | `p_cliente_id` | Catálogo por lista de precios |
-| `/tca/cliente/pedido-rapido/crear` | POST | `CREAR_PEDIDO_RAPIDO` | `p_cliente_id`, `p_vendedor_id`, `p_items_json`, `p_observaciones` | Crear pedido rápido |
-| `/tca/cliente/mis-pedidos` | GET | `GET_MIS_PEDIDOS_CLIENTE` | `p_cliente_id`, `p_estado` | Historial pedidos |
-| `/tca/cliente/llamar-vendedor` | GET | `GET_CONTACTO_VENDEDOR` | `p_cliente_id` | Contacto vendedor (tel/whatsapp) |
+| `/fv/cliente/mis-datos` | GET | `GET_CLIENTE_DETALLE` | `p_cliente_id` | Datos cliente + vendedor asignado |
+| `/fv/cliente/solicitar-visita` | POST | `SOLICITAR_VISITA_CLIENTE` | `p_cliente_id`, `p_vendedor_id`, `p_fecha_preferida`, `p_hora_preferida`, `p_motivo` | Solicitar visita |
+| `/fv/cliente/catalogo-pedido` | GET | `GET_CATALOGO_CLIENTE` | `p_cliente_id` | Catálogo por lista de precios |
+| `/fv/cliente/pedido-rapido/crear` | POST | `CREAR_PEDIDO_RAPIDO` | `p_cliente_id`, `p_vendedor_id`, `p_items_json`, `p_observaciones` | Crear pedido rápido |
+| `/fv/cliente/mis-pedidos` | GET | `GET_MIS_PEDIDOS_CLIENTE` | `p_cliente_id`, `p_estado` | Historial pedidos |
+| `/fv/cliente/llamar-vendedor` | GET | `GET_CONTACTO_VENDEDOR` | `p_cliente_id` | Contacto vendedor (tel/whatsapp) |
 
 ## Pruebas para Validación de APIs Oracle
 
 ### 4.1 Pruebas SQL Directas
 | API | Prueba | Resultado Esperado |
 |---|---|---|
-| `GET_KPI_GERENCIA` | `SELECT PKG_TCA_WEBAPI.GET_KPI_GERENCIA(...) FROM DUAL;` | JSON parseable sin ORA- |
+| `GET_KPI_GERENCIA` | `SELECT PKG_FV_WEBAPI.GET_KPI_GERENCIA(...) FROM DUAL;` | JSON parseable sin ORA- |
 | `GET_VENTAS_POR_VENDEDOR` | Conciliación con facturas del rango | Sumas coinciden exactamente |
 | `GET_RUTA_DIARIA_VENDEDOR` | Comparar con ruta real | Mismos clientes/estados |
 | `GET_MONITOREO_GPS` | Revisar última posición | Coordenadas válidas, sin 0,0/NULL |
@@ -366,8 +366,8 @@ Todas las APIs deben exponerse vía **Oracle REST Data Services (ORDS)** con **P
 ### Checklist Obligatorio
 
 ```text
-[ ] Crear PACKAGE PKG_TCA_WEBAPI con todas las APIs
-[ ] Exponer vía ORDS bajo /tca/* (GET/POST)
+[ ] Crear PACKAGE PKG_FV_WEBAPI con todas las APIs
+[ ] Exponer vía ORDS bajo /fv/* (GET/POST)
 [ ] Retornar CLOB JSON con Content-Type application/json
 [ ] Devolver venta_con_igv y venta_sin_igv en totales
 [ ] Garantizar lat/lng en CLIENTES y RUTA_DET
@@ -380,7 +380,7 @@ Todas las APIs deben exponerse vía **Oracle REST Data Services (ORDS)** con **P
 [ ] Inactivación lógica (ACTIVO='N') en maestros
 [ ] Pruebas SQL + Postman OK
 ```
-https://tca-2.vercel.app/
+https://fv-demo.vercel.app/
 ### Requerimientos Técnicos
 
 | Requerimiento | Justificación |
@@ -389,7 +389,7 @@ https://tca-2.vercel.app/
 | Parámetros fecha `DATE`/`TIMESTAMP` (YYYY-MM-DD) | Evitar desfases horarios |
 | UPSERT para GPS | Actualizar última posición sin duplicados |
 | Vistas materializadas para KPI gerencia | Performance en horas pico |
-| Auditoría `AUDITORIA_TCA` | Trazabilidad acciones sensibles |
+| Auditoría `AUDITORIA_FV` | Trazabilidad acciones sensibles |
 | No exponer stacktrace Oracle | Errores amigables en JSON |
 
 ## Despliegue
@@ -419,5 +419,5 @@ npm run build  # Genera dist/
 ---
 
 **Última actualización**: Octubre 2026  
-**Repositorio**: [https://github.com/fvaleradeveloper/tca_2](https://github.com/fvaleradeveloper/tca_2)  
+**Repositorio**: [https://github.com/fvaleradeveloper/fuerza-de-venta](https://github.com/fvaleradeveloper/fuerza-de-venta)  
 **Deploy**: Vercel (auto-deploy desde `main`)

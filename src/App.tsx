@@ -19,11 +19,11 @@ import { AttendanceModal } from './components/AttendanceModal';
 import { PromptModal } from './components/PromptModal';
 import { AccessDeniedCard } from './components/AccessDeniedCard';
 
-export const MASTER_PROMPT_TEXT = `Act as an expert Principal Full-Stack Engineer and Senior Product Designer. Build a production-grade, highly polished Enterprise B2B SaaS web application named "Total Calidad - Andean Logistics Intelligence" for commercial distribution, sales supervision, and route telemetry tailored to fast-moving consumer goods (FMCG / Consumo Masivo - Nestlé, Alicorp, Gloria) in Lima, Peru.
+export const MASTER_PROMPT_TEXT = `Act as an expert Principal Full-Stack Engineer and Senior Product Designer. Build a production-grade, highly polished Enterprise B2B SaaS web application named "Fuerza de Venta - Plataforma de Inteligencia Comercial" for commercial distribution, sales supervision, and route telemetry tailored to fast-moving consumer goods (FMCG / Consumo Masivo - Nestlé, Alicorp, Gloria) in Lima, Peru.
 
 ---
 
-### 1. DESIGN SYSTEM & VISUAL ARCHITECTURE (Andean Logistics Intelligence)
+### 1. DESIGN SYSTEM & VISUAL ARCHITECTURE (Plataforma de Inteligencia Comercial)
 - Persona & Aesthetic: Authoritative, analytical, high-density corporate data workstation built with Tailwind CSS. Crisp slate background (#F7F9FB), deep corporate navy (#0F172A / #131B2E) for primary navigation and cards, and emerald accent (#006C49 / #10B981) for positive KPI variances and fulfillment goals.
 - Anti-Slop Discipline: No decorative pill badge spam, no generic AI gradients, no fake compiler code comments. Clean, single-line typography using Inter / Plus Jakarta Sans with tabular figures (tabular-nums font-mono) for all monetary values, percentages, and timestamps.
 - Navigation Layout: Persistent 72-pixel (w-72) left sidebar + fixed top header (h-16) + responsive 12-column content container.
@@ -248,7 +248,7 @@ export default function App() {
     cargo: v.id === 'v-2' || v.id === 'v-6' ? 'Supervisor' : 'Vendedor',
     telefono: v.phone,
     celular: v.phone,
-    email: `demo${i + 1}@totalcalidad.demo`,
+    email: `demo${i + 1}@fuerzadeventa.demo`,
     zona: v.zone,
     supervisorId: 'sup-1',
     supervisorNombre: v.supervisor,
@@ -259,6 +259,12 @@ export default function App() {
     direccion: 'Lima, Perú',
     distrito: v.zone,
   })));
+
+  // Cliente portal login state
+  const [clienteLogueado, setClienteLogueado] = useState<ClienteUsuario | null>(null);
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPass, setLoginPass] = useState('');
+  const [loginError, setLoginError] = useState('');
 
   // Selected Vendedor for VendedorView
   const vendedoresInit: Vendedor[] = empleadosMaestros

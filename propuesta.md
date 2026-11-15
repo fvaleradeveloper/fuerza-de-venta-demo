@@ -1,10 +1,10 @@
-# Propuesta Comercial: TCA - Plataforma de Gestión Comercial para Distribuidoras
+# Propuesta Comercial: Fuerza de Venta - Plataforma de Gestión Comercial para Distribuidoras
 
 ## 1. Propósito de la Propuesta
 
-Esta propuesta tiene por objetivo presentar **TCA (Total Calidad Alimentaria)**, una plataforma web diseñada para elevar el estándar de desempeño, control y rentabilidad de empresas distribuidoras de consumo masivo (FMCG). 
+Esta propuesta tiene por objetivo presentar **Fuerza de Venta**, una plataforma diseñada para elevar el estándar de desempeño, control y rentabilidad de empresas distribuidoras de consumo masivo. Será una plataforma web debido a su rápida implementación, adaptaciones y modificaciones sin traumas, disponile en cualquier dispositivo: PC, Tablet y celular. 
 
-El sistema integra gestión comercial, rutas de ventas, seguimiento en tiempo real, control de concursos, portal de clientes y toma de decisiones gerenciales en una sola solución.
+El sistema integra gestión comercial, rutas de ventas, seguimiento en tiempo real, control de concursos, portal de clientes y KPIs o indicadores que potencian la toma de decisiones gerenciales con asistencia y colaboración de IA.
 
 ## 2. Objetivos Estratégicos
 
@@ -12,18 +12,17 @@ El sistema integra gestión comercial, rutas de ventas, seguimiento en tiempo re
 - **Mejorar el control gerencial**: Tener visibilidad en tiempo real del cumplimiento de metas, márgenes y facturación.
 - **Fortalecer la relación con el cliente**: Brindar agilidad en pedidos y mayor transparencia en la atención.
 - **Elevar la productividad**: Reducir tiempo administrativo, errores en pedidos y reprocesos.
-- **Tomar decisiones basadas en datos**: Centralizar información confiable para análisis y proyecciones.
+- **Tomar decisiones basadas en datos y análisis con ayuda de la IA**: Centralizar información confiable para análisis y proyecciones; Uso de análisis de IA.
+- **Uso de IA**: Aprovechar la IA para racionalizar decisiones tanto gerenciales como del personal operativo en relación a rutas, mensajes, notificaciones.
 
 ## 3. Características Funcionales del Sistema
 
 ### 3.1. Gestión por Roles
 
-| Rol | Alcance | Beneficio |
-|---|---|---|
-| **Gerencia** | Visión 360° de toda la operación. P&L, márgenes, zonas, vendedores, concursos y aprobaciones. | Control estratégico y toma de decisiones con datos confiables. |
-| **Supervisor / Mesa de Trabajo** | Seguimiento de su equipo, asistencia, alertas operativas, rutas y desempeño por marca/categoría. | Mayor control operativo, detección temprana de desviaciones. |
-| **Vendedor (Ruta)** | Hoja de ruta, toma de pedidos, visitas, comisiones estimadas y atención a pedidos solicitados por clientes. | Más ágil en campo, mejor seguimiento a su cartera y mayor conversión. |
-| **Cliente (Bodega/Minimarket)** | Autenticación propia, solicitud de visita, pedido rápido y contacto directo con su vendedor asignado. | Mayor comodidad, pedidos anticipados y mejor comunicación. |
+- **Gerencia**   Visión 360° de toda la operación. P&L, márgenes, zonas, vendedores, concursos y aprobaciones.   Control estratégico y toma de decisiones con datos confiables.  
+- **Supervisor / Mesa de Trabajo**   Seguimiento de su equipo, asistencia, alertas operativas, rutas y desempeño por marca/categoría.   Mayor control operativo, detección temprana de desviaciones.  
+- **Vendedor (Ruta)**   Hoja de ruta, toma de pedidos, visitas, comisiones estimadas y atención a pedidos solicitados por clientes.   Más ágil en campo, mejor seguimiento a su cartera y mayor conversión.  
+- **Cliente (Bodega/Minimarket)**   Autenticación propia, solicitud de visita, pedido rápido y contacto directo con su vendedor asignado.   Mayor comodidad, pedidos anticipados y mejor comunicación. 
 
 ### 3.2. Panel de Control Ejecutivo (Gerencia)
 
@@ -157,8 +156,8 @@ El sistema integra gestión comercial, rutas de ventas, seguimiento en tiempo re
 
 ## 7. Conclusión
 
-**TCA** es más que un sistema de ventas: es una herramienta de gestión para transformar la operación comercial de una distribuidora. 
+**Fuerza de Venta** es más que un sistema de ventas: es una herramienta de gestión para transformar la operación comercial de una distribuidora haciéndola sostenible y permanente. 
 
-Al unificar ruta, supervisión, gerencia, concursos, maestros y portal cliente en una sola plataforma, se logra mayor control, mayor productividad, mejor servicio al cliente y mayor rentabilidad.
+Al unificar ruta, supervisión, gerencia, concursos, maestros y portal cliente en una sola plataforma, se logra mayor control, mayor productividad, mejor servicio al cliente y mayor rentabilidad. Se evita la dispersión de atención, esfuerzo innecesario en su uso
 
-Con su enfoque práctico, indicadores accionables y visión integral, **TCA permite elevar el estándar operativo al nivel que exigen las distribuidoras líderes del mercado peruano**.
+Con su enfoque práctico, indicadores accionables y visión integral, **Fuerza de Venta permite elevar el estándar operativo al nivel que exigen las distribuidoras líderes del mercado peruano**.

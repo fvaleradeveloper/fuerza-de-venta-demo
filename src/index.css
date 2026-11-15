@@ -1,3 +1,28 @@
 @import "tailwindcss";
 
 @variant dark (&:where(.dark, .dark *));
+
+:root {
+  --brand-navy: #131b2e;
+  --brand-navy-dark: #0f172a;
+  --brand-emerald: #006c49;
+  --brand-emerald-bright: #10b981;
+  --brand-surface-light: #f7f9fb;
+  --brand-surface-dark: #0f172a;
+  --brand-surface-sidebar: #f2f4f6;
+  --brand-surface-sidebar-dark: #1e293b;
+  --brand-border: #e0e3e5;
+  --brand-border-dark: #334155;
+  --brand-text: #191c1e;
+  --brand-text-dark: #f1f5f9;
+  --brand-text-muted: #45464d;
+  --brand-text-muted-dark: #94a3b8;
+}
+
+html {
+  font-family: 'Inter', sans-serif;
+}
+
+.dark {
+  color-scheme: dark;
+}

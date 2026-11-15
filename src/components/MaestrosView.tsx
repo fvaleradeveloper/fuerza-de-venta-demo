@@ -107,7 +107,7 @@ const initialEmpleados: Empleado[] = INITIAL_VENDEDORES.map((v, i) => ({
   cargo: 'Vendedor',
   telefono: v.phone,
   celular: v.phone,
-  email: `${v.initials.toLowerCase()}@totalcalidad.com`,
+  email: `${v.initials.toLowerCase()}@fuerzadeventa.com`,
   zona: v.zone,
   supervisorId: 'sup-1',
   supervisorNombre: v.supervisor,

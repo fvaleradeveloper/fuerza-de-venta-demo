@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#006c49;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="12" fill="url(#g)" />
+  <path d="M14 28 L20 28 L20 18 Q20 15 23 15 Q26 15 26 18 L26 28 L30 28 L30 18 Q30 15 33 15 Q36 15 36 18 L36 28 L38 28 L38 34 L12 34 L12 28 Z" fill="#ffffff" />
+  <text x="24" y="43" font-family="Plus Jakarta Sans, Inter, sans-serif" font-size="7" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1">FV</text>
+</svg>
